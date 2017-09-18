@@ -12,11 +12,12 @@ void draw()
   int numthree=0;
   int numfive=0;
   int numsix=0;
+  int total=0;
   
   for(int y=0; y<500; y+=50)  
     for (int x=0; x<500; x=x+50)
       {
-        Dice bob = new Dice (x, y);
+        Dice bob = new Dice(x, y);
         bob.show();
         if (bob.one == true)
         {
@@ -42,20 +43,15 @@ void draw()
         {
           numsix = numsix+1;
         }
+        total = numone*1+numtwo*2+numthree*3+numfour*4+numfive*5+numsix*6;
       }
-   text("one:",20,520);
-   text(numone,50,520);
-   text("two:",70,520);
-   text(numtwo,100,520);
-   text("three:",120,520);
-   text(numthree,160,520);
-   text("four:",180,520);
-   text(numfour,210,520);
-   text("five:",230,520);
-   text(numfour,260,520);
-   text("six:",280,520);
-   text(numfour,310,520);
-   text("total:100",400,520);
+   text("one:"+numone,20,520);
+   text("two:"+numtwo,70,520);
+   text("three:"+numthree,120,520);
+   text("four:"+numfour,180,520);
+   text("five:"+numfive,230,520);
+   text("six:"+numsix,280,520);
+   text("total:"+total,400,520);
 }
 void mousePressed()
 {
@@ -106,7 +102,7 @@ class Dice
     float b =(int)(Math.random()*255+1);
     noStroke();
     fill(r, g, b);
-    rect(myX,myY,40,40);
+    rect(myX,myY,40,40,5);
     
     stroke(255);
     fill(0);
